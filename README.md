@@ -1,6 +1,6 @@
 # TelReper
 A tool for reporting telegram channel automatically
-<h1>Installation</h1>
+<h1>Usage</h1>
 <ul>
   <li>
     <h3>Termux:</h3>
