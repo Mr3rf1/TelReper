@@ -51,9 +51,6 @@ elif args.add_number != None:
         nums = [int(search('Ac(\d+)\.session', x).group(1)) for x in sesis]
         nums.sort()
         nOfLastAc = int(search('Ac(\d+)\.session', sesis[-1]).group(1))
-        print(sesis)
-        print(nOfLastAc)
-        print(nums)
         ses = TelegramClient(f'sessions/Ac{nums[-1]+1}', api_id, api_hash)
         try:
             ses.start(number)
