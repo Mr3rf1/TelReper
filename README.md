@@ -4,6 +4,7 @@ A tool for reporting telegram channel automatically
 <ul>
   <li>
     <h3>Termux:</h3>
+    <ul>
     <li><code>apt update</code></li>
     <li><code>apt upgrade</code></li>
     <li><code>pkg install python3 python3-pip git -y</code></li>
@@ -11,5 +12,6 @@ A tool for reporting telegram channel automatically
     <li><code>cd TelReper</code></li>
     <li><code>pip3 install -r requeirments.txt</code></li>
     <li><code>python3 reper.py</code></li>
+    </ul>
   </li>
 </ul>
