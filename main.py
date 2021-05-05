@@ -5,7 +5,6 @@ from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon import functions, types
-from socks import SOCKS5
 from os import listdir, mkdir
 from sys import argv
 from re import search
@@ -55,7 +54,7 @@ elif args.add_number != None:
         print(sesis)
         print(nOfLastAc)
         print(nums)
-        ses = TelegramClient(f'sessions/Ac{nums[-1]+1}', api_id, api_hash, proxy=(SOCKS5, '127.0.0.1', 9050))
+        ses = TelegramClient(f'sessions/Ac{nums[-1]+1}', api_id, api_hash)
         try:
             ses.start(number)
             print(f' [{Fore.GREEN}✅{Fore.RESET}] Your account added succesfully :D')
@@ -63,7 +62,7 @@ elif args.add_number != None:
         except PhoneNumberInvalidError:
             print(f' [{Fore.RED}!{Fore.RESET}] The phoneNumber was invalid!{Fore.RESET}')
     else:
-        ses = TelegramClient(f'sessions/Ac1', api_id, api_hash, proxy=(SOCKS5, '127.0.0.1', 9050))
+        ses = TelegramClient(f'sessions/Ac1', api_id, api_hash)
         try:
             ses.start(number)
             print(f' [{Fore.GREEN}✅{Fore.RESET}] Your account added succesfully :D')
