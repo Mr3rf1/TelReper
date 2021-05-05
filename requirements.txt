@@ -1,0 +1,4 @@
+colorama
+telethon
+asyncio
+telegram
