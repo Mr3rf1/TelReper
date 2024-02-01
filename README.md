@@ -32,7 +32,7 @@ A tool for reporting telegram channel automatically
     <li>Install python3 from python.org</li>
     <li>Download source code from https://github.com/e811-py/TelReper</li>
     <li>change directory to source code directory</li>
-    <li><code>pip install -r requierments.txt</code></li>
+    <li><code>pip install -r requirements.txt</code></li>
     <li><code>python reper.py</code></li>
     </ul>
   </li>
