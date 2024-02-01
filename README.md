@@ -22,7 +22,7 @@ A tool for reporting telegram channel automatically
     <li><code>sudo apt install python3 python3-pip git -y</code></li>
     <li><code>git clone https://github.com/e811-py/TelReper</code></li>
     <li><code>cd TelReper</code></li>
-    <li><code>sudo pip3 install -r requeirments.txt</code></li>
+    <li><code>sudo pip3 install -r requirements.txt</code></li>
     <li><code>python3 reper.py</code></li>
     </ul>
   </li>
