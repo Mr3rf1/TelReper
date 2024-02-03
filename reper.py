@@ -1,5 +1,4 @@
 # t.me/Mr3rf1  <3
-# t.me/MrSMSBomber
 # Eski khasti beri manba bezan :|
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
