@@ -3,7 +3,7 @@
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from telethon import functions, types
+from telethon import functions
 from os import listdir, mkdir
 from sys import argv
 from re import search
@@ -92,19 +92,17 @@ elif args.add_number == None and args.run != None and args.target != None and ar
                 for r in range(count):
                     # result = await cli(functions.messages.ReportSpamRequest(peer=target))
                         # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonPornography(), message='This channel sends offensive content'))
-                    if args.mode == 'spam':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonSpam(), message="This channel sends offensive content"))                        # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonViolence()))
-                    elif args.mode == 'fake_account':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonFake(), message="This channel sends offensive content"))
-                    elif args.mode == 'violence':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonViolence(), message="This channel sends offensive content"))
-                    elif args.mode == 'child_abuse':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonChildAbuse(), message="This channel sends offensive content"))
-                    elif args.mode == 'pornography':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonPornography(), message="This channel sends offensive content"))
-                  
-                    elif args.mode == 'geoirrelevant':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonGeoIrrelevant(), message="This channel sends offensive content"))                        # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonViolence()))
+                    # Updated for Telethon 1.40.0 - ReportRequest now uses 'option' parameter instead of 'reason'
+                    # The option parameter should initially be empty bytes, and Telegram will return available options
+                    report_message = f"This channel sends offensive content - {args.mode}"
+
+                    # Start with empty option bytes - Telegram will return available report options
+                    result = await cli(functions.messages.ReportRequest(
+                        peer=target,
+                        id=repMess,
+                        option=b'',  # Initially empty as per API documentation
+                        message=report_message
+                    ))
                     if result:
                         print(f" [{Fore.GREEN}✅{Fore.RESET}] Reported :) Ac:{Fore.YELLOW}{selfName}{Fore.RESET} count:{Fore.LIGHTBLUE_EX}{r}{Fore.RESET}")
                     else:
